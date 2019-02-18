@@ -1,0 +1,21 @@
+Composite:
+===========
+What is Composite? Why we need it? When can we use it.
+
+-Whenever we have a tree kind of structure of objects in our application, and these multiple object create or make one whole
+object and we want to treat all object in this hierarchy in similar or uniform way.
+-This is not a simple concept of Composition from object oriented principle, but a enhancement to that principle
+-Think of composite pattern when dealing with tree kind of structure of objects.
+
+Implementation Considerations:
+=============================
+- You can provide a method to access parent of the node, this will simplify easy traversal of entire tree.
+- You can define collections of children to maintain in base component instead of composition, but again that field has no use in leaf node.
+- If leaf objects can be repeated in the hierarchy then shared leaf node can be used to save memory and initialization cost.
+
+Design Consideration:
+=====================
+- Decision need to be made about child management operation, if placed in base component leaf is forced to implement it.
+Defining them in composite is safer but client has to be made aware of it.
+- Overall goal is to make client code easier to implement while using composite. This is possible when client
+code work with Component interface only

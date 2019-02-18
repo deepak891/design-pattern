@@ -1,0 +1,33 @@
+What is flyweight?
+==================
+- Our system need  large number of object of particular class & maintaining these object is a performance concern.
+- Flyweight allow us to share object in multiple context. But instead of sharing entire object which may not be feasible
+  We can divide object in two parts. intrinsic(state that is shared in every context) extrinsic (state that is specific to context).
+  We create object with only intrinsic state and share them in multiple context.
+- Client or user of the object provides the extrinsic object to carry out operation.
+- We provide factory so that client can get flyweight based on some key to identify flyweight
+
+Implementation consideration
+============================
+- A factory is necessary for flyweight objects as client code needs easy way to get shared instance of flyweight.
+  Also when number of shared instance increase factory design pattern provides central place to access them.
+- Flyweight intrinsic state should be immutable for it's successful implementation of flyweight
+
+Design Consideration
+====================
+- Usability of flyweight design pattern depends upon presence sensible extrinsic state which can be easily moved out without any issue.
+- Some other design pattern like strategy or state can make best use of flyweight design pattern
+
+Compare & contrast with Object Pool
+===================================
+Flyweight                                                   Object Pool
+1. State of flyweight object is divided.                    1. A pooled object has all of its state encapsulated in itself.
+client must provide part of its state
+2. In a typical usage client will not change                2. Clients can and will changed the state of  pooled objects.
+it's intrinsic state as flyweight object is shared
+
+Pitfalls
+========
+- Runtime cost is added to maintain extrinsic state. Client code has to either maintain extrinsic state or calculate every time flyweight is called.
+- It is difficult to find perfect candidate for flyweight design pattern. Graphical application benefit heavily with this pattern however web application
+  may not have lot of use case for this pattern.
